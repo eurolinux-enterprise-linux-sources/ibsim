@@ -1,7 +1,7 @@
 Summary: InfiniBand fabric simulator for management
 Name: ibsim
 Version: 0.5
-Release: 4%{?dist}
+Release: 5%{?dist}
 License: GPLv2 or BSD
 Group: System Environment/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -9,7 +9,7 @@ Source: http://www.openfabrics.org/downloads/%{name}/%{name}-%{version}-0.1.g327
 Url: http://openfabrics.org/
 BuildRequires: libibmad-devel
 Conflicts: openib-diags < 1.3
-ExclusiveArch: i386 x86_64 ia64 ppc ppc64
+ExclusiveArch: %{ix86} x86_64 ia64 ppc ppc64
 %description
 ibsim provides simulation of infiniband fabric for using with OFA OpenSM,
 diagnostic and management tools. 
@@ -38,6 +38,11 @@ rm -rf $RPM_BUILD_ROOT
 %doc README COPYING TODO net-examples scripts
 
 %changelog
+* Thu Aug 04 2011 Doug Ledford <dledford@redhat.com> - 0.5-5
+- Bump and rebuild against latest libibmad/libibumad
+- Fix build on i686
+- Related: bz725016
+
 * Fri Mar 12 2010 Doug Ledford <dledford@redhat.com> - 0.5-4.el6
 - Rebuild against latest opensm, which was required for latest ibutils,
   which was required to resolve licensing issues during pkgwrangler review
