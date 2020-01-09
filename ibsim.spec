@@ -1,7 +1,7 @@
 Summary: InfiniBand fabric simulator for management
 Name: ibsim
 Version: 0.5
-Release: 5%{?dist}
+Release: 6%{?dist}
 License: GPLv2 or BSD
 Group: System Environment/Libraries
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -38,6 +38,10 @@ rm -rf $RPM_BUILD_ROOT
 %doc README COPYING TODO net-examples scripts
 
 %changelog
+* Tue Jan 31 2012 Doug Ledford <dledford@redhat.com> - 0.5-6
+- Bump and rebuild against new libibmad/opensm
+- Related: bz750609
+
 * Thu Aug 04 2011 Doug Ledford <dledford@redhat.com> - 0.5-5
 - Bump and rebuild against latest libibmad/libibumad
 - Fix build on i686
